@@ -4,6 +4,8 @@ package com.leetcode.easy;
 /**
  * @author Peko
  *
+ * 找出两数之和
+ *
  *  解题思路：
  *      循环数组，以当前数看作是num1，然后用target减去num1，得到num2
  *      循环剩下的数组的数，找是否有等同num2的，如果有则返回两个数的下标
