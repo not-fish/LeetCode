@@ -9,13 +9,14 @@ package com.leetcode.easy;
  * 效率：52 ms 39 MB
  *
  * 解题思路2：
- *  *    直接从目标数尾部算起回文
+ *  *    与思路1差不多，但是直接从目标数尾部算起回文
  *  * 效率：9 ms 37.9 MB
  */
 public class Solution9 {
     public static void main(String[] args) {
         System.out.println(isPalindrome2(120000021));
     }
+
     public static boolean isPalindrome1(int x) {
 
         if(x<0){
