@@ -11,10 +11,10 @@ import java.util.Stack;
  *      遍历字符串，对于左括号，就入栈，对于右括号就查是否与栈顶匹配，如果匹配则栈顶出栈，否则返回不匹配
  *
  * 效率：
- *      2ms  75.85%
- *      36.5MB  82.69%
+ *      O(n)  2ms  75.85%
+ *      O(n)  36.5MB  82.69%
  *
- * 把栈改写成数字，速度会快一点
+ * 把栈改写成数组，switch改为if/else，速度会快一点
  */
 public class Solution20 {
     public static void main(String[] args) {

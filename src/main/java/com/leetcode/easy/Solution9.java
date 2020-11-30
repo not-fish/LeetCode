@@ -6,11 +6,15 @@ package com.leetcode.easy;
  *
  * 解题思路1：
  *      把目标数截为左右两半，然后计算右边的回文数是否等于左边
- * 效率：52 ms 39 MB
+ * 效率：
+ *      55 ms   5.30%
+ *      O(1)   38.6 MB   10.36%
  *
  * 解题思路2：
- *  *    与思路1差不多，但是直接从目标数尾部算起回文
- *  * 效率：9 ms 37.9 MB
+ *     与思路1差不多，但是直接从目标数尾部算起回文
+ * 效率：
+ *      O(logn)   9 ms   99.44%
+ *      O(1)  38 MB  68.16%
  */
 public class Solution9 {
     public static void main(String[] args) {

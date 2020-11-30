@@ -13,14 +13,18 @@ import java.util.List;
  *      首先计算这些字符串数组中的最短字符串的长度，因为最大前缀肯定不会超过这个长度
  *      循环这个长度，获取字符串组中同一位的字符，然后遍历字符串组对比是否都相等，如果相等则记录
  *
- * 效率：9ms 36.7MB
+ * 效率：
+ *      O(mn)(其中 mm 是字符串数组中的字符串的平均长度，nn 是字符串的数量)   1 ms  88.20%
+ *      O(1)  36MB  99.39%
  *
  * 解题思路2：
  *      字符串A和字符串B两两找出最大前缀，然后把最大前缀作为A，再继续和字符串C比较
  *
  * 注意点：1、如果两两比较出来的结果是""，则直接返回""，后面的不用再比了
  *
- * 效率：1ms 36.1MB
+ * 效率：
+ *      O(mn)(其中 m 是字符串数组中的字符串的平均长度，n 是字符串的数量)    1ms    88.20%
+ *      O(1)  36.3MB  94.63%
  */
 public class Solution14 {
     public String longestCommonPrefix1(String[] strs) {
@@ -47,18 +51,14 @@ public class Solution14 {
             minLen = Math.min(t.length(),minLen);
         }
 
-        System.out.println("minLen = "+minLen);
-
         for(int i=0;i<minLen;i++){
 
             for(String t : strs){
                 if(circle == 0){
                     c = t.charAt(strLen);
-                    System.out.println("new c = "+c);
                 }
                 if(c == t.charAt(i)){
                     circle++;
-                    System.out.println("c = "+c+"  target = "+t.charAt(i));
                 }
             }
 

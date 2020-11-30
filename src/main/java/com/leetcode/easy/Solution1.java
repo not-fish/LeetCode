@@ -12,6 +12,10 @@ package com.leetcode.easy;
  *
  *  坑：
  *      1、小心负数情况，如果target为数组，则将target和数组里面的数都转正
+ *
+ *  效率：
+ *      O(n*n)  0ms    100%
+ *      O(1)  38.4MB   89.10%
  */
 class Solution1 {
 
@@ -20,11 +24,9 @@ class Solution1 {
     }
 
     public static int[] twoSum(int[] nums, int target) {
-        int[] sum = new int[2];
         int numOne,numTow;
         int len = nums.length;
 
-        //当目标数为负数时，将目标数与数组转正
         if(target < 0){
             target*=-1;
             for(int i =0;i<nums.length;i++){
@@ -33,18 +35,16 @@ class Solution1 {
         }
 
         for(int i = 0;i<len;i++){
-            //算出num1，num2
+
             numOne = nums[i];
             numTow = target - numOne;
             for(int j = i+1;j<len;j++){
                 //找出与num2等同的数
                 if(nums[j]==numTow){
-                    sum[0] = i;
-                    sum[1] = j;
-                    return sum;
+                    return new int[]{i,j};
                 }
             }
         }
-        return sum;
+        return new int[0];
     }
 }

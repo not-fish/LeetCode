@@ -10,11 +10,15 @@ import java.util.Map;
  *
  * 解题思路1：
  *      从字符串的右边开始两两比较，如果倒数第二位的字符second等级小于倒数第一位的字符first等级，则相减，否则相加
- * 效率：7 ms 39.1 MB
+ * 效率：
+ *      O(n)  7 ms   40.93%
+ *      O(1)  39.1 MB  34.3%
  *
  * 解题思路2：
  *      与解题思路1相同，不过是从左到右，而且把map换成switch
- * 效率：4 ms 38.7 MB
+ * 效率：
+ *      O(n)  4 ms  99.98%
+ *      O(1)  38.7 MB  78.23%
  */
 public class Solution13 {
     public int romanToInt1(String s) {
