@@ -11,10 +11,20 @@ package com.leetcode.easy;
  *
  * 效率：
  *      O(N+M)  3ms      57.86%
- *      O(N)    38.3 MB  36.94%
+ *      O(1)    38.3 MB  36.94%
+ *
+ * 解题思路2：
+ *      不用先补0再计算，可以同时进行，如果下标小于0，则表示0值，
+ *      把同位相加拆成两步，和数再%2
+ *      进位可以改为除2
+ *      最后反转字符串
+ *
+ * 效率：
+ *      O(N)  2ms     98.62%
+ *      O(N)  37.4MB  67.48%
  */
 public class Solution67 {
-    public String addBinary(String a, String b) {
+    public String addBinary1(String a, String b) {
         StringBuilder aBuilder = new StringBuilder(a);
         StringBuilder bBuilder = new StringBuilder(b);
 
@@ -67,5 +77,23 @@ public class Solution67 {
         }
 
         return sum.toString();
+    }
+
+    public String addBinary2(String a, String b) {
+        StringBuilder ans = new StringBuilder();
+        int carry = 0;
+        int sum = 0;
+        for(int i = a.length()-1,j = b.length()-1;i>=0 || j>=0;i--,j--){
+            sum = carry;
+            sum += i>=0 ? a.charAt(i)-'0' : 0;
+            sum += j>=0 ? b.charAt(j)-'0' : 0;
+            ans.append(sum%2);
+            carry = sum/2;
+        }
+        if(carry == 1){
+            ans.append("1");
+        }
+
+        return ans.reverse().toString();
     }
 }
