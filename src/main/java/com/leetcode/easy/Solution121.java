@@ -19,10 +19,13 @@ package com.leetcode.easy;
  * 效率：
  *      O(N)     1ms      98.85%
  *      O(1)     37.9 MB  95.85%
+ *
+ * 优化：
+ *      只用记录最低价和最高利润，如果当前价格低于记录的最低价，则记录，否则就计算最大利润
  */
 public class Solution121 {
 
-    public int maxProfit(int[] prices) {
+    public int maxProfit1(int[] prices) {
 
         if(prices.length <= 1){
             return 0;
@@ -50,5 +53,20 @@ public class Solution121 {
         }
 
         return Math.max(max, 0);
+    }
+
+    public int maxProfit2(int[] prices) {
+
+        int minPrices = Integer.MAX_VALUE;
+        int maxProfit = 0;
+
+        for(int i=0;i<prices.length;i++){
+            if(prices[i] < minPrices){
+                minPrices = prices[i];
+            }else if(prices[i] - minPrices > maxProfit){
+                maxProfit = prices[i] - minPrices;
+            }
+        }
+        return maxProfit;
     }
 }
